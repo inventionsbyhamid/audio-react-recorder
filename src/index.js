@@ -151,19 +151,19 @@ export default class AudioReactRecorder extends React.Component {
       // Do something with the data, i.e Convert this to WAV
       let left = e.inputBuffer.getChannelData(0)
       let right = e.inputBuffer.getChannelData(1)
-      if (!self.tested) {
-        self.tested = true
-        // if this reduces to 0 we are not getting any sound
-        if (!left.reduce((a, b) => a + b)) {
-          console.log('Error: There seems to be an issue with your Mic')
-          // clean up;
-          self.stop()
-          self.stream.getTracks().forEach(function (track) {
-            track.stop()
-          })
-          // self.context.close()
-        }
-      }
+      // if (!self.tested) {
+      //   self.tested = true
+      //   // if this reduces to 0 we are not getting any sound
+      //   if (!left.reduce((a, b) => a + b)) {
+      //     console.log('Error: There seems to be an issue with your Mic')
+      //     // clean up;
+      //     self.stop()
+      //     self.stream.getTracks().forEach(function (track) {
+      //       track.stop()
+      //     })
+      //     // self.context.close()
+      //   }
+      // }
       // we clone the samples
       self.leftchannel.push(new Float32Array(left))
       self.rightchannel.push(new Float32Array(right))
